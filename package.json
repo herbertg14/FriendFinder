@@ -1,7 +1,7 @@
 {
   "name": "friendfinder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Friend Finder app",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/herbertg14/FriendFinder.git"
   },
-  "author": "",
+  "author": "Herbert Gutierrez",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/herbertg14/FriendFinder/issues"
@@ -20,6 +20,10 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sweetalert": "^1.1.3"
+  },
+  "engines": {
+    "node": "5.10.1"
   }
 }
