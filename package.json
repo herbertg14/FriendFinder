@@ -25,5 +25,6 @@
   },
   "engines": {
     "node": "5.10.1"
-  }
+  },
+  "start": "node server.js"
 }
