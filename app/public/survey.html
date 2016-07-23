@@ -193,19 +193,36 @@
 			var answer9 = parseInt($("#question9").val()[0]);
 			var answer10 = parseInt($("#question10").val()[0]);
 
-			formData = {
+			userData = {
 				name: $("#nameInput").val(),
 				photo: $("#photoInput").val(),
 				scores: [answer1,answer2,answer3,answer4,answer5,answer6,answer7,answer8,answer9,answer10]
 			}
-			console.log(formData);
 
 			var currentURL = window.location.origin;
 
-			$.post(currentURL + "/api/friends", formData, function(data){
-				if (data == true){
-					alert("data added");
+			$.post(currentURL + "/api/friends", userData, function(data){
+				var matchName = "";
+				var matchPhoto = "";
+				var matchScore = 1000; 
+
+				for (var i = 0; i < data.length - 1; i++){
+					var dbData = data[i];
+
+					var currentScore = 0;
+
+					for (var j = 0; j < dbData.scores.length ; j++){
+						currentScore += Math.abs(userData.scores[j] - dbData.scores[j]);
+					}
+
+					if (currentScore < matchScore){
+						matchName = dbData.name;
+						matchPhoto = dbData.photo;
+						matchScore = currentScore;
+					}
 				}
+
+				console.log("your match is: " + matchName);
 			});
 
 		}
