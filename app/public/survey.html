@@ -180,6 +180,7 @@
 		if (validated == false){
 			alert("Please complete the form");
 		}
+
 		else{
 			var answer1 = parseInt($("#question1").val()[0]);
 			var answer2 = parseInt($("#question2").val()[0]);
@@ -198,9 +199,16 @@
 				scores: [answer1,answer2,answer3,answer4,answer5,answer6,answer7,answer8,answer9,answer10]
 			}
 			console.log(formData);
+
+			var currentURL = window.location.origin;
+
+			$.post(currentURL + "/api/friends", formData, function(data){
+				if (data == true){
+					alert("data added");
+				}
+			});
+
 		}
-		// var answer1 = $("#question1").val();
-		// alert(answer1);
 	})
 </script>
 
