@@ -165,12 +165,10 @@
 
 		if($("#nameInput").val() == ""){
 			validated = false;
-			alert("please fill in name");
 		}
 
 		if($("#photoInput").val() == ""){
 			validated = false;
-			alert("please fill in photo");
 		}
 
 		return validated;
@@ -179,7 +177,28 @@
 	$("#submitButton").on("click", function(){
 		var validated = validate();
 
-		alert(validated);
+		if (validated == false){
+			alert("Please complete the form");
+		}
+		else{
+			var answer1 = parseInt($("#question1").val()[0]);
+			var answer2 = parseInt($("#question2").val()[0]);
+			var answer3 = parseInt($("#question3").val()[0]);
+			var answer4 = parseInt($("#question4").val()[0]);
+			var answer5 = parseInt($("#question5").val()[0]);
+			var answer6 = parseInt($("#question6").val()[0]);
+			var answer7 = parseInt($("#question7").val()[0]);
+			var answer8 = parseInt($("#question8").val()[0]);
+			var answer9 = parseInt($("#question9").val()[0]);
+			var answer10 = parseInt($("#question10").val()[0]);
+
+			formData = {
+				name: $("#nameInput").val(),
+				photo: $("#photoInput").val(),
+				scores: [answer1,answer2,answer3,answer4,answer5,answer6,answer7,answer8,answer9,answer10]
+			}
+			console.log(formData);
+		}
 		// var answer1 = $("#question1").val();
 		// alert(answer1);
 	})
